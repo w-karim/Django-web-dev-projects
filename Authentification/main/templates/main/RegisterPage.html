@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Page</title>
+</head>
+<style>
+    body{
+        background: #1F1C2C; 
+        background: -webkit-linear-gradient(to right, #928DAB, #1F1C2C);
+        background: linear-gradient(to right, #928DAB, #1F1C2C); 
+        padding: 0;
+        margin: 10px;
+        font-family: sans-serif;
+    }
+    .div{
+        position : absolute;
+        width: 500px;
+        height: 350px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        border-radius: 30px;
+        padding: 20px;
+        border: none;
+        background: #e2ece2;
+    }
+    .div h2{
+        margin: 0 0 35px;
+        padding: 0;
+        text-align: center;
+    }
+    .user_box{
+        text-align: center;
+        
+    }
+    .user_box input{
+        width: 50%;
+        height: 50%;
+        border-radius: 10px;
+        margin-bottom: 20px;
+        border: none;
+        font-size: 16px;
+        padding: 10px;
+        border: 1px solid black; 
+        text-align: center;
+    }
+    .user_box input::placeholder{
+        text-align: center;
+        font-weight: bold;
+    }
+    .register_button{
+        position: relative;
+        height: 30px;
+        width: 22%;
+        border-radius: 10px;
+        border: 1px solid black; 
+        cursor: pointer;
+        left: 39%;
+        font-size: 18px;
+        margin-top: 20px;
+    }
+    .register_button:hover{
+        background: linear-gradient(to right, #928DAB, #1F1C2C);
+    }
+</style>
+<body>
+    <div class = "div">
+        <h2>Register</h2>
+        <form method="POST">
+            {% csrf_token %}
+            <div class = "user_box">
+                {{form.username}}
+            </div>
+            <div class = "user_box">
+                {{form.email}}
+            </div>
+            <div class = "user_box">
+                {{form.password1}}
+            </div>
+            <div class = "user_box">
+                {{form.password2}}
+            </div>
+            <button class = "register_button" type = "submit">Register</button>
+        </form> 
+    </div>
+</body>
+</html>
