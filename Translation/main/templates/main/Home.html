@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Translation</title>
+</head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        background: #242526;
+        font-family: sans-serif;
+    }
+    .text_box{
+        position: absolute;
+        width: 400px;
+        height: 300px;
+        background: white;
+        border-radius: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-150%,-50%);
+        border: 1px solid black;
+    }
+    .text-input{
+        font-size: 15px;
+        width: 394px;
+        height: 296px;
+        text-indent: 10px;
+        border-radius: 20px;
+        background: white;
+        border-color: white;
+        outline:none;
+        resize: none;
+    }
+    .result_box{
+        position: absolute;
+        width: 400px;
+        height: 300px;
+        background: white;
+        border-radius: 20px;
+        top: 50%;
+        left: 50%;
+        transform: translate(50%,-50%);
+        border: 1px solid black;
+    }
+    .result-textarea{
+        border-radius: 20px;
+        width: 394px;
+        height: 296px;
+        font-size: 15px;
+        resize : none;
+        text-indent: 10px;
+    }
+    .lang-box{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        border-radius: 20px;
+        border: 1px solid black;
+        
+    }
+    .lang-input{
+        font-size: 15px;
+        width: 200px;
+        height: 30px;
+        text-align: center;
+        border-radius: 20px;
+    }
+    .lang-input:hover{
+        cursor: pointer;
+    }
+    .translate_button{
+        position: absolute;
+        top: 58%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        border-radius: 20px;
+        width: 120px;
+        height: 30px;
+        background: white;
+        border: 1px solid black;
+    }
+    .translate_button:hover{
+        cursor: pointer;
+        font-weight: bold;
+        font-size: 15px;
+    }
+    
+</style>
+<body>
+    <form method="POST">
+        {% csrf_token %}
+        <div class = "text_box">
+            {{form.Text}}
+        </div>
+        <div class = "lang-box">
+            {{form.Languages}}
+        </div>
+        <input class = "translate_button" type="submit" value="Translate">
+    </form>
+    <div class = "result_box">
+        <textarea class = "result-textarea">{{translated_sentence}}</textarea>
+    </div>
+    
+</body>
+</html>
