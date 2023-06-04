@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Qr code Generator</title>
+</head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        background: #181818;
+        font-family: sans-serif;
+    }
+
+    .container{
+        position : absolute;
+        width: 600px;
+        height: 450px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        border-radius: 30px;
+        padding: 20px;
+        border: none;
+        background: #808080;
+    }
+
+    .img-container{
+        position : absolute;
+        width: 255px;
+        height: 253px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-51%);
+        padding: 20px;
+        border: none;
+        background: white;
+        border: 3px solid #181818
+    }
+
+    .qr-img{
+        position : absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    .Text-box{
+        margin-top: 390px;
+        margin-left: 29%;
+    }
+
+    .text-input{
+        text-align: center;
+        width: 250px;
+        height: 30px;
+    }
+
+    .generate-button{
+        margin-top: 10px;
+        margin-left: 44%;
+        border-radius: 30px;
+        height: 30px;
+        outline: none;
+        border: 1px solid black
+    }
+
+    .generate-button:hover{
+        cursor: pointer;
+        font-weight: bold;
+    }
+
+</style>
+<body>
+    <div class = "container">
+
+        <form method = "POST">
+            {% csrf_token %}
+            <div class = 'Text-box'>
+                {{ form.Text }}
+            </div>
+            <input type = "submit" class = "generate-button" value = "Generate">
+        </form>
+        <div class = "img-container">
+
+        </div>
+        <div class = "qr-img">
+            {% if qr_image_name %}
+                <img src  ="/media/{{ qr_image_name }}" alt = "qr code">
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
