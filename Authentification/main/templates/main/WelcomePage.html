@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome Page</title>
+</head>
+<style>
+    body{
+        background: #1F1C2C; 
+        background: -webkit-linear-gradient(to right, #928DAB, #1F1C2C);
+        background: linear-gradient(to right, #928DAB, #1F1C2C); 
+        padding: 0;
+        margin: 10px;
+        font-family: sans-serif;
+    }
+
+    .div{
+        position : absolute;
+        width: 500px;
+        height: 350px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+        border-radius: 30px;
+        padding: 20px;
+        border: none;
+        background: #e2ece2;
+    }
+
+    .div h1{
+        text-align: center;
+        font-style: italic;
+        margin-top: 130px;   
+    }
+
+    .no_acc{
+        margin-top: 170px;
+        text-align: center;
+    }
+    
+    .span_btn{
+        color: black;
+        font-weight: bold;
+    }
+
+    .span_btn:hover{
+        color: red;
+        font-weight: bold;
+        font-size: 18px;
+    }
+</style>
+<body>
+    <div class = "div">
+        <h1> Welcome {{request.user}} !</h1>
+        <div class = "no_acc">
+            <a href = "{%url 'LogoutPage' %}" class = "span_btn" > > LogOut < </a>
+        </div>
+    </div>
+</body>
+</html>
