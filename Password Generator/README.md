@@ -1,2 +1,2 @@
-![dev1](https://github.com/w-karim/Django-web-dev-projects/assets/121901070/df772e4b-6c47-416c-b208-43f29441404d)
+![dev1](https://github.com/w-karim/Django-web-dev-projects/assets/121901070/ecaeadee-a888-4401-811c-48a120b4ffa6)
 
