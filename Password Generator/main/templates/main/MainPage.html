@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Generator</title>
+</head>
+<style>
+    body{
+        padding: 0;
+        margin: 0;
+        background: #55B4B0;
+        font-family: sans-serif;
+    }
+
+    .container{
+        position: absolute;
+        width: 500px;
+        height: 350px;
+        background: white;
+        border-radius: 30px;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+    }
+
+    .container h1{
+        text-align: center;
+        text-decoration : underline;
+    }
+
+    .nb{
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .user_length{
+        border : none;
+        text-align: center;
+    }
+    .input-length{
+        text-align: center;
+        font-size: 15px;
+        font-weight: bold;
+        width: 220px;
+        height: 30px;
+        outline: none;
+    }
+    .generate_button{
+        position: relative;
+        background: #c7c4bf;
+        border-radius: 30px;
+        border: 1px solid black;
+        height: 30px;
+        left: 210px;
+        top: 16px;
+    }
+    .generate_button:hover{
+        cursor: pointer;
+    }
+    .popup_div{
+        width :160px;
+        height: 60px;
+        text-align: center;
+        margin-top: 30px;
+        border: 1px solid black;
+        border-radius: 30px;
+        margin-left: 165px;
+        line-height: 1.4em;
+        background: #c7c4bf;
+    }
+    .popup_div h4{
+        margin-top: 10px;
+    }
+</style>
+<body>
+    <div class = "container">
+        <h1>Password Generator</h1>
+        <form method = 'POST'>
+            {% csrf_token %}
+            <p class = 'nb'>For a secured password, the minimum length is set to 6.</p>
+            <div class = "user_length">
+                {{form.length}}
+            </div>
+            <button class = "generate_button" name = "generate">Generate</button>
+           
+            <div class = "popup_div">
+                <h4>Password : <br/> {{password}}</h4>
+            </div>
+            
+        </form>
+    </div>
+    
+</body>
+</html>
